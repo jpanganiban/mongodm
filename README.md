@@ -19,9 +19,17 @@ Usage
       firstName: db.String(),
       lastName: db.String(),
       age: db.Integer()
-    }, {
+    }, {  // Indexes
       email: 1,
       firstName: 1
+    }, {  // Instance methods
+      sayHello: function(user) {
+        console.log(user);
+      }
+    }, {  // Class methods
+      findYoungPeople: function(user) {
+        return user.findSync({age: {$lt: 30}});
+      }
     });
 
 ###Instantiating a document
