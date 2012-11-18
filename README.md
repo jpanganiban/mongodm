@@ -1,6 +1,8 @@
 MongoDM
 =======
 
+An alternative MongoDB ODM.
+
 Usage
 -----
 
