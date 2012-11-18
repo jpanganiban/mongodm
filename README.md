@@ -6,14 +6,12 @@ An alternative MongoDB ODM.
 Usage
 -----
 
-###Basic Usage
-
-Creating a connection
+###Creating a Connection
 
     var mongo = require('mongodm');
     var db = mongo.Connection('127.0.0.1:27017');
 
-Defining a document
+###Defining a document
 
     var User = db.Document({
       collectionName: 'users',
@@ -26,7 +24,7 @@ Defining a document
       firstName: 1
     });
 
-Instantiating a document
+###Instantiating a document
 
     var jesse = new User({
       firstName: "Jesse",
@@ -34,7 +32,7 @@ Instantiating a document
       age: 21
     });
 
-Saving a document
+###Saving a document
 
     jesse.save(function(err, user) {
       if (err) {
@@ -42,7 +40,7 @@ Saving a document
       }
     });
 
-Getting a list of documents
+###Getting a list of documents
 
     User.find({firstName: "Jesse"}, {sort: [{firstName: 1}], function(err, users) {
       console.log(users);  // Returns a list of users sorted by firstName
@@ -52,7 +50,7 @@ Getting a list of documents
     // var users = User.findSync({firstName: "Jesse"}, {sort: [firstName: 1}]);
     // console.log(users);
 
-Getting a single document
+###Getting a single document
 
     User.findOne({firstName: "Jesse"}, function(err, user) {
       console.log(user);  // Returns a single user or null
